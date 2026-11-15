@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Design tokens from the Carlust app theme (lib/core/theme). */
+@theme {
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
+
+  --color-brand: #df4058;
+  --color-brand-deep: #cf2f49;
+  --color-brand-text: #b0263c;
+  --color-brand-link: #c02a42;
+  --color-brand-soft: #fcebee;
+  --color-brand-tint: #f2a3af;
+
+  --color-ink: #000000;
+  --color-ink-2: #2a2a2a;
+  --color-ink-3: #4a4a4a;
+  --color-muted: #727272;
+  --color-faint: #9197a6;
+
+  --color-line: #d1d7df;
+  --color-line-soft: #e5e9ef;
+  --color-surface: #f7f8fa;
+  --color-placeholder: #f1f3f6;
+
+  --color-success: #2e9e5b;
+  --color-error: #d32f2f;
+  --color-warning: #e8a33d;
+  --color-star: #e8b400;
+
+  --color-night: #161616;
+  --color-night-line: #2a2a2a;
+  --color-night-text: #b8bcc6;
+
+  --shadow-card: 1px 1px 6px rgba(0, 0, 0, 0.1);
+  --shadow-float: 0 10px 40px rgba(0, 0, 0, 0.1), 1px 1px 6px rgba(0, 0, 0, 0.08);
+  --shadow-brand: 0 6px 16px rgba(223, 64, 88, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+}
+
+/* Hero background tiles drift up and down. */
+@keyframes cl-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+@keyframes cl-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+.cl-up { animation: cl-up 48s linear infinite; }
+.cl-down { animation: cl-down 48s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .cl-up, .cl-down { animation: none; }
+}
